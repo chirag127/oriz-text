@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro'
+import TextStudio from '../components/TextStudio.tsx'
+
+const title = 'oriz-text — Text Toolkit | case, count, dedupe, sort, slugify, lorem'
+const description =
+  'A writing-desk text toolkit: case convert, word/char count, dedupe & sort lines, slugify, lorem ipsum, reverse, remove extra spaces, find & replace, and optional AI polish. 100% client-side — no upload, no signup.'
+---
+
+<Base title={title} description={description}>
+  <section class="hero measure">
+    <p class="hero__kicker">The manuscript desk</p>
+    <h1 class="hero__title">Shape your <em>text</em>.</h1>
+    <p class="hero__lede dropcap">
+      Case, counts, lines, slugs, lorem, find &amp; replace — every transform runs
+      right here in your browser. Nothing is uploaded, nothing is stored. Drop a
+      file or start typing; the carriage counter ticks as you write.
+    </p>
+    <ul class="hero__marks" aria-label="Privacy">
+      <li>100% client-side</li>
+      <li>No upload</li>
+      <li>No signup</li>
+      <li>Optional AI, loads on demand</li>
+    </ul>
+  </section>
+
+  <TextStudio client:load />
+</Base>

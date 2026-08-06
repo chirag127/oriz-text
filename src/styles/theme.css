@@ -1,0 +1,118 @@
+/*
+ * oriz-text theme — "The Manuscript Desk".
+ * Literary identity: cream paper, ink-black serif, red editor-margin marks,
+ * a measured column. OVERRIDES the shared --oz-* contract; never redefines
+ * the shared space/radii/motion primitives.
+ */
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/jetbrains-mono';
+
+@import '@chirag127/oz-tokens-base/contract.css';
+@import '@chirag127/oz-tokens-base/base.css';
+@import '@chirag127/oz-chrome/styles.css';
+
+:root {
+  /* --- bespoke palette: cream paper + ink + editor red --- */
+  --paper: #f6f0e2;
+  --paper-2: #efe7d4;
+  --ink: #1c1a17;
+  --ink-mute: #6b6357;
+  --rule: #d8cdb4;
+  --red: #b23a2e; /* editor-margin correction red */
+  --red-soft: #c65a4d;
+  --gold: #8a6d2f;
+
+  /* map onto the shared contract */
+  --oz-bg: var(--paper);
+  --oz-fg: var(--ink);
+  --oz-surface: var(--paper-2);
+  --oz-muted: var(--ink-mute);
+  --oz-border: var(--rule);
+  --oz-accent: var(--red);
+  --oz-accent-fg: #fbf7ec;
+
+  /* deliberate type pairing: Fraunces display + Source Serif 4 body */
+  --oz-font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --oz-font-body: 'Source Serif 4 Variable', Georgia, serif;
+  --oz-font-mono: 'JetBrains Mono Variable', ui-monospace, Menlo, monospace;
+
+  /* extra tokens the chrome styles read */
+  --oz-paper: var(--paper);
+  --oz-ink: var(--ink);
+  --oz-ink-mute: var(--ink-mute);
+  --oz-rule: var(--rule);
+  --oz-text-lg: 1.35rem;
+  --oz-text-md: 1rem;
+  --oz-header-h: 4rem;
+
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #17150f;
+    --paper-2: #1f1c14;
+    --ink: #ece3cf;
+    --ink-mute: #a89b80;
+    --rule: #34301f;
+    --red: #e0705f;
+    --red-soft: #d1604f;
+    --oz-accent-fg: #17150f;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  /* faint ruled-paper grain */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 1.9rem,
+    color-mix(in oklab, var(--rule) 22%, transparent) 1.9rem,
+    color-mix(in oklab, var(--rule) 22%, transparent) calc(1.9rem + 1px)
+  );
+  background-attachment: fixed;
+}
+
+/* the writing-desk column */
+.measure {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+/* red editor margin rule on the composing surface */
+.manuscript {
+  position: relative;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--oz-radius-m);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 12px 30px -20px rgba(28, 26, 23, 0.4);
+}
+
+/* drop cap for hero lede */
+.dropcap::first-letter {
+  font-family: var(--oz-font-display);
+  font-weight: 600;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.72;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--red);
+}
+
+/* selection tinted editor-red */
+::selection {
+  background: color-mix(in oklab, var(--red) 24%, transparent);
+}
+
+.ink-btn {
+  font-family: var(--oz-font-body);
+  cursor: pointer;
+  transition: background var(--oz-dur-fast) var(--oz-ease-out),
+    color var(--oz-dur-fast) var(--oz-ease-out), border-color var(--oz-dur-fast) var(--oz-ease-out);
+}
