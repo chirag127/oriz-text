@@ -17,6 +17,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#b23a2e" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -30,5 +33,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <OzToolShell site="text" title="Text Toolkit" mainClass="page">
       <slot />
     </OzToolShell>
+    <script is:inline src="/registerSW.js"></script>
   </body>
 </html>
