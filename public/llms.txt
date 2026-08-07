@@ -1,0 +1,25 @@
+# oriz-text
+
+> Writing-desk text toolkit. Case convert, word/char/line count, dedupe & sort lines, slugify, lorem ipsum, reverse, remove extra spaces, find & replace, plus optional AI polish (grammar/summarize/rewrite/tone/translate). 100% client-side — text never leaves the browser; no upload, no signup, free. PWA-installable.
+
+## App
+
+- [Live app](https://text.oriz.in): the tool itself — type or drop a `.txt`, run any transform, copy or download the result.
+- [Full site text](https://text.oriz.in/llms-full.txt): complete hero, feature, and how-to copy as clean markdown for LLM ingestion.
+
+## Features
+
+- [Case conversion](https://text.oriz.in): UPPERCASE, lowercase, Title Case, Sentence case, tOGGLE cASE.
+- [Programmer cases](https://text.oriz.in): camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, slugify.
+- [Line tools](https://text.oriz.in): sort A→Z / Z→A / numeric, dedupe, reverse, shuffle.
+- [Whitespace tools](https://text.oriz.in): trim lines, remove extra spaces, remove blank lines.
+- [Reverse](https://text.oriz.in): reverse characters, reverse words.
+- [Find & replace](https://text.oriz.in): literal or regex (with `$1` backrefs), optional ignore-case.
+- [Lorem ipsum](https://text.oriz.in): generate paragraphs, sentences, or words.
+- [Live meter](https://text.oriz.in): words, chars, chars-no-spaces, lines, sentences, paragraphs, reading time — updates as you type.
+- [AI polish (optional)](https://text.oriz.in): fix grammar, summarize, rewrite, formal/casual tone, translate — keyless, loads on demand.
+
+## About
+
+- [About / info page](https://chirag127.github.io/oriz-text/): what oriz-text is, features, tech, and links.
+- [Source code](https://github.com/chirag127/oriz-text): MIT-licensed repo on GitHub.

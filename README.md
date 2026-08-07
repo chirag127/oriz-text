@@ -1,10 +1,12 @@
 # oriz-text — Text Toolkit
 
-**Live: https://text.oriz.in**
+- **Live app:** https://text.oriz.in
+- **About / info:** https://chirag127.github.io/oriz-text/
+- **llms.txt:** https://text.oriz.in/llms.txt
 
-A writing-desk text toolkit. Case convert, word/char/line count, dedupe & sort lines, slugify, lorem ipsum, reverse, remove extra spaces, and find & replace — plus optional AI polish (rewrite / summarize / tone / grammar / translate).
+A writing-desk text toolkit: case convert, word/char/line count, dedupe & sort lines, slugify, lorem ipsum, reverse, remove extra spaces, and find & replace — plus optional AI polish (rewrite / summarize / tone / grammar / translate).
 
-**100% client-side. No upload. No signup.** Every transform runs in your browser; your text never leaves the page. The AI features are optional, load on demand, and the core tools work with AI fully offline.
+**100% client-side, no upload, no signup, free.** Every transform runs in your browser; your text never leaves the page. AI features are optional, load on demand, and the core tools work with AI fully offline.
 
 ## Features
 
@@ -21,7 +23,12 @@ A writing-desk text toolkit. Case convert, word/char/line count, dedupe & sort l
 
 ## Stack
 
-Astro (static) · React 19 islands · Tailwind v4 · shared `@chirag127/oz-*` packages. Zero string-op dependencies — all native.
+Astro (static) · React 19 islands · Tailwind v4 · PWA-installable · shared `@chirag127/oz-*` packages for mechanism, bespoke theme per site. Zero string-op dependencies — all native.
+
+## Two surfaces
+
+- **CF Pages** serves the live app at [text.oriz.in](https://text.oriz.in).
+- **GitHub Pages** serves the [about / info page](https://chirag127.github.io/oriz-text/), published from `gh-info/` by `.github/workflows/gh-pages-info.yml`.
 
 ## Develop
 

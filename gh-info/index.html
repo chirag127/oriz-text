@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About oriz-text — Text Toolkit</title>
+    <meta
+      name="description"
+      content="About oriz-text: a 100% client-side text toolkit — case, count, dedupe, sort, slugify, find & replace, and optional AI rewrite. No upload, no signup."
+    />
+    <link rel="canonical" href="https://chirag127.github.io/oriz-text/" />
+    <style>
+      :root {
+        --bg: #14161b;
+        --panel: #1c1f27;
+        --fg: #e8eaf0;
+        --muted: #9aa1b0;
+        --accent: #6ea8fe;
+        --border: #2b2f3a;
+        --radius: 12px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+      .badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.2rem 0.7rem;
+        margin-bottom: 1.25rem;
+      }
+      h1 { font-size: 2rem; margin: 0 0 0.4rem; line-height: 1.15; }
+      h1 .name { color: var(--accent); }
+      .tagline { color: var(--muted); font-size: 1.05rem; margin: 0 0 1.75rem; }
+      h2 { font-size: 1.1rem; margin: 2rem 0 0.6rem; }
+      p { margin: 0 0 1rem; }
+      ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+      li { margin: 0.25rem 0; }
+      .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0.5rem; }
+      a.btn {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--fg);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.6rem 1rem;
+        font-weight: 600;
+        transition: border-color 0.15s ease, transform 0.05s ease;
+      }
+      a.btn:hover { border-color: var(--accent); }
+      a.btn.primary { background: var(--accent); color: #0b1220; border-color: var(--accent); }
+      a { color: var(--accent); }
+      code { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 0.05rem 0.35rem; font-size: 0.9em; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <span class="badge">About this project</span>
+      <h1>About <span class="name">oriz-text</span></h1>
+      <p class="tagline">
+        Text toolkit — case, count, dedupe, sort, slugify, find &amp; replace, AI rewrite.
+      </p>
+
+      <p>
+        oriz-text is a writing-desk text toolkit that runs entirely in your
+        browser. Type, paste, or drop a file, then run any transform — your text
+        never leaves the page. This is the project info page; the live tool lives
+        at <a href="https://text.oriz.in">text.oriz.in</a>.
+      </p>
+
+      <div class="links">
+        <a class="btn primary" href="https://text.oriz.in">Open the live app →</a>
+        <a class="btn" href="https://github.com/chirag127/oriz-text">Source on GitHub</a>
+        <a class="btn" href="https://text.oriz.in/llms.txt">llms.txt</a>
+      </div>
+
+      <h2>Key features</h2>
+      <ul>
+        <li><strong>Case:</strong> UPPER, lower, Title, Sentence, tOGGLE.</li>
+        <li><strong>Programmer cases:</strong> camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, slugify.</li>
+        <li><strong>Lines:</strong> sort A→Z / Z→A / numeric, dedupe, reverse, shuffle.</li>
+        <li><strong>Whitespace:</strong> trim lines, remove extra spaces, remove blank lines.</li>
+        <li><strong>Reverse:</strong> characters or words.</li>
+        <li><strong>Find &amp; replace:</strong> literal or regex with <code>$1</code> backrefs, ignore-case.</li>
+        <li><strong>Lorem ipsum:</strong> paragraphs, sentences, or words.</li>
+        <li><strong>Live meter:</strong> words, chars, lines, sentences, paragraphs, reading time.</li>
+        <li><strong>AI polish (optional):</strong> grammar, summarize, rewrite, tone, translate.</li>
+      </ul>
+
+      <h2>Tech</h2>
+      <ul>
+        <li>Client-only Astro (static) with React 19 islands.</li>
+        <li>AI via g4f through <code>@chirag127/oz-ai</code> — keyless, loads on demand.</li>
+        <li>PWA-installable; core tools work offline.</li>
+        <li>100% in-browser — no upload, no signup, free.</li>
+      </ul>
+
+      <h2>Links</h2>
+      <ul>
+        <li>Live app: <a href="https://text.oriz.in">https://text.oriz.in</a></li>
+        <li>Source: <a href="https://github.com/chirag127/oriz-text">github.com/chirag127/oriz-text</a></li>
+        <li>LLM index: <a href="https://text.oriz.in/llms.txt">text.oriz.in/llms.txt</a></li>
+      </ul>
+
+      <footer>MIT © 2026 Chirag Singhal · This is the info page, not the app.</footer>
+    </main>
+  </body>
+</html>

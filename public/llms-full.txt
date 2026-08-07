@@ -1,0 +1,135 @@
+# oriz-text — Text Toolkit
+
+Live app: https://text.oriz.in
+Source: https://github.com/chirag127/oriz-text
+About page: https://chirag127.github.io/oriz-text/
+
+oriz-text is a writing-desk text toolkit. Every transform runs in your browser — your text never leaves the page. No upload, no signup, free. AI features are optional, load on demand, and every core tool works with AI fully offline. The site is a static Astro app with React 19 islands, installable as a PWA.
+
+## Hero
+
+The manuscript desk.
+
+Shape your text.
+
+Case, counts, lines, slugs, lorem, find & replace — every transform runs right here in your browser. Nothing is uploaded, nothing is stored. Drop a file or start typing; the carriage counter ticks as you write.
+
+Privacy marks: 100% client-side. No upload. No signup. Optional AI, loads on demand.
+
+## What it does
+
+Paste, type, or drop a `.txt`/`.md`/`.csv`/`.json` file into the editor. Pick any transform to rewrite the whole text; a live meter counts as you type. Copy the result to the clipboard, download it as `text.txt`, load the built-in sample, undo the last change, or clear. Optional AI polish rewrites the text via a keyless model.
+
+## Tools
+
+### Case
+
+- UPPERCASE — convert all text to upper case.
+- lowercase — convert all text to lower case.
+- Title Case — capitalize the first letter of each word.
+- Sentence case — capitalize the first letter of each sentence.
+- tOGGLE cASE — invert the case of every letter.
+
+### Programmer cases
+
+- camelCase — join words, lowercase first, capitalize the rest (myVariableName).
+- PascalCase — join words, capitalize each (MyVariableName).
+- snake_case — lowercase words joined by underscores (my_variable_name).
+- kebab-case — lowercase words joined by hyphens (my-variable-name).
+- CONSTANT_CASE — uppercase words joined by underscores (MY_VARIABLE_NAME).
+- Slugify — URL-safe slug: lowercase, hyphen-separated, stripped of punctuation.
+
+### Whitespace
+
+- Trim lines — strip leading and trailing whitespace from every line.
+- Remove extra spaces — collapse runs of spaces to a single space.
+- Remove blank lines — drop empty lines.
+
+### Lines
+
+- Sort A→Z — sort lines alphabetically ascending.
+- Sort Z→A — sort lines alphabetically descending.
+- Sort numeric — sort lines by numeric value.
+- Dedupe lines — remove duplicate lines.
+- Reverse lines — reverse line order.
+- Shuffle lines — randomize line order.
+
+### Reverse
+
+- Reverse chars — reverse every character in the text.
+- Reverse words — reverse the order of words.
+
+### Find & replace
+
+Literal or regular-expression search and replace. Regex mode supports capture-group backreferences (`$1`). Optional ignore-case. Replaces all matches and reports the count.
+
+### Lorem ipsum
+
+Generate placeholder text — choose paragraphs, sentences, or words, and a count from 1 to 100. Inserted at the end of the current text.
+
+### Live meter
+
+Updates as you type: words, characters, characters excluding spaces, lines, sentences, paragraphs, and estimated reading time.
+
+### AI polish (optional)
+
+Keyless AI actions that rewrite the current text. Loads on demand; core tools work without it.
+
+- Fix grammar — fix grammar, spelling, and punctuation while preserving meaning and voice.
+- Summarize — produce a tight summary.
+- Rewrite — rewrite for clarity and strength while keeping meaning.
+- Formal tone — rewrite in a formal, professional tone.
+- Casual tone — rewrite in a friendly, casual tone.
+- Translate — translate into English, Hindi, Spanish, French, German, Japanese, Arabic, or Chinese.
+
+The AI uses a keyless completion path (free Pollinations endpoint first, `@chirag127/oz-ai` g4f multi-provider failover second) — no API key, no account.
+
+## Desk actions
+
+- Copy — copy the editor contents to the clipboard.
+- Download .txt — save the contents as `text.txt`.
+- Open file — load a local `.txt`, `.md`, `.csv`, `.json`, or text file.
+- Drag & drop — drop a text file onto the editor to load it.
+- Sample — load a built-in pangram sample.
+- Undo — revert the last transform.
+- Clear — empty the editor (undoable).
+
+## How to use
+
+1. Type, paste, or drop a text file into the editor.
+2. Watch the live meter for word/char/line counts as you write.
+3. Click any transform chip (Case, Programmer, Whitespace, Lines, Reverse) to rewrite the whole text.
+4. Use Find & replace for targeted edits (literal or regex).
+5. Optionally run an AI action to polish, summarize, or translate.
+6. Copy or download the result. Undo if needed.
+
+## Privacy
+
+100% client-side. Every core transform is pure JavaScript running in your browser — text is never uploaded or stored on any server. AI actions send text only to a keyless completion endpoint when you explicitly click an AI button; core tools never make network calls. No signup, no account, no tracking cookies.
+
+## FAQ
+
+Q: Is my text uploaded anywhere?
+A: No. Core transforms run entirely in your browser. Only optional AI actions send text to a keyless model, and only when you click one.
+
+Q: Do I need an account or API key?
+A: No. Everything is free and keyless.
+
+Q: Does it work offline?
+A: Yes — it is a PWA. Core tools work fully offline once installed; AI actions need a connection.
+
+Q: What file types can I open?
+A: `.txt`, `.md`, `.csv`, `.json`, and other text files, by button or drag-and-drop.
+
+Q: Is it open source?
+A: Yes, MIT-licensed at https://github.com/chirag127/oriz-text.
+
+## Tech
+
+- Astro (static output) with React 19 islands.
+- Tailwind CSS v4.
+- Shared `@chirag127/oz-*` packages (tokens, chrome, file, AI) for mechanism; bespoke theme per site.
+- AI via `@chirag127/oz-ai` (g4f multi-provider failover) plus keyless Pollinations endpoint — no API key.
+- PWA-installable (offline core tools, autoUpdate service worker).
+- Zero string-op dependencies — all transforms use native JavaScript.
+- MIT © 2026 Chirag Singhal.
