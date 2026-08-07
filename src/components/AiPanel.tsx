@@ -43,6 +43,34 @@ const MODES: Mode[] = [
 
 const LANGS = ['English', 'Hindi', 'Spanish', 'French', 'German', 'Japanese', 'Arabic', 'Chinese']
 
+// Keyless completion: raw Pollinations (free, no credits) first, oz-ai failover second.
+async function polish(system: string, prompt: string): Promise<string> {
+  try {
+    const r = await fetch('https://text.pollinations.ai/openai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'openai',
+        temperature: 0.4,
+        messages: [
+          { role: 'system', content: system },
+          { role: 'user', content: prompt },
+        ],
+      }),
+    })
+    if (r.ok) {
+      const j = await r.json()
+      const c = j?.choices?.[0]?.message?.content
+      if (typeof c === 'string' && c.trim()) return c
+    }
+  } catch {
+    /* fall through to oz-ai */
+  }
+  const { complete } = await import('@chirag127/oz-ai')
+  return complete(prompt, { system, temperature: 0.4 })
+}
+
+
 export function AiPanel({
   text,
   onReplace,
@@ -62,11 +90,9 @@ export function AiPanel({
     setBusy(m.id)
     setError(null)
     setResult(null)
+    const sys = m.id === 'translate' ? `${m.system} Target language: ${lang}.` : m.system
     try {
-      // Lazy-load the AI package only on first use — keeps initial JS tiny.
-      const { complete } = await import('@chirag127/oz-ai')
-      const sys = m.id === 'translate' ? `${m.system} Target language: ${lang}.` : m.system
-      const out = await complete(m.instruct(text), { system: sys, temperature: 0.4 })
+      const out = await polish(sys, m.instruct(text))
       setResult(out.trim())
     } catch {
       setError('All AI providers are busy. Core tools still work — try again in a moment.')
