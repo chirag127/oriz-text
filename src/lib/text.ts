@@ -301,7 +301,9 @@ export function lorem(opts: LoremOptions = {}): string {
   if (opts.startClassic !== false) {
     const classic = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     if (unit === 'words') {
-      result = classic
+      const generated = result.split(' ')
+      const opener = classic.split(' ').slice(0, n)
+      result = [...opener, ...generated.slice(opener.length)].join(' ')
     } else {
       // Replace the first sentence with the classic opener.
       result = result.replace(/^[^.]*\./, classic + '.')

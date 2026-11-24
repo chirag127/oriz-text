@@ -182,6 +182,14 @@ describe('lorem', () => {
     const out = lorem({ unit: 'words', count: 5, startClassic: false, rand: () => seq[i++] })
     expect(out.split(' ').length).toBe(5)
   })
+  it('classic opener preserves requested word count', () => {
+    for (const count of [1, 5, 8, 9, 20, 500]) {
+      const out = lorem({ unit: 'words', count, rand: () => 0.5 })
+      expect(out.split(' ').length).toBe(count)
+      expect(out.startsWith('Lorem')).toBe(true)
+    }
+    expect(lorem({ unit: 'words', count: 5 })).toBe('Lorem ipsum dolor sit amet,')
+  })
   it('paragraphs separated by blank line', () => {
     const out = lorem({ unit: 'paragraphs', count: 2, rand: () => 0.5 })
     expect(out.split('\n\n').length).toBe(2)
